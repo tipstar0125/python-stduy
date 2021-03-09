@@ -1,0 +1,5 @@
+*.spec
+build/
+traning/
+__pycache__/
+dist/

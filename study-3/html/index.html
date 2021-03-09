@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>eelテスト</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <h2>eelテスト</h2>
+
+        <label for="source">CSVファイル：</label>
+        <input id="source" type="text" name="source" placeholder="CSVファイル名を入力">
+        <br>
+        <label for="search">検索キーワード：</label>
+        <input id="search" type="text" name="search" placeholder="キーワードを入力">
+        <input id="submit" type="submit" name="submit" value="検索">
+        <br>
+        <textarea id="result" name="result" class="result_box"></textarea>
+        <br>
+        <input id="app_end" type="submit" name="app_end" value="終了">
+
+        <script type="text/javascript" src="./eel.js"></script>
+        <script type="text/javascript">
+            
+            // 検索ボタンがクリックされた時の処理
+            submit.addEventListener('click', () => {
+                var search_keyword = document.getElementById('search').value;
+                var source_file = document.getElementById('source').value;
+                if (!search_keyword) {
+                    window.alert('キーワードを入力してください');
+                } else {
+                    eel.kimetsu_search(search_keyword, source_file)
+                }
+            })
+
+            // 終了ボタンがクリックされた時の処理
+            app_end.addEventListener('click', () => {
+                eel.exit()
+            })
+
+            // PythonからJavaScriptを呼び出す
+            eel.expose(view_log_js)
+            function view_log_js(text){
+                // s = document.getElementById('result').textContent + text
+                // document.getElementById('result').textContent = s + '\n'
+                result.value += text + '\n'
+            }
+        </script>
+    </body>
+</html>
