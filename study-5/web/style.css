@@ -1,0 +1,17 @@
+body {
+    overflow-y: scroll;
+}
+
+.font-24 {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.font-20 {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+th, td {
+    text-align: center;
+}
